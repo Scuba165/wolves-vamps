@@ -1,9 +1,8 @@
 // Header for creating the scene.
-#include "char.h"
+#include "tile.h"
 
+tile** create_board(int size_x, int size_y); // Initializes the board size.
 
-int board_init(); // Initializes the board size.
+void add_objects(tile* board[], int size_x, int size_y); // Adds trees, lakes, potion.
 
-void add_objects(tile[], int); // Adds trees, lakes, potion.
-
-void team_select(); // Player selects team.
+void print_board(tile* board[], int size_x, int size_y); // Prints board.
