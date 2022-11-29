@@ -66,7 +66,7 @@ class board {
     void print_board() {
         for(int i = 0; i < get_height(); i++) {
             for(int j = 0; j < get_width(); j++) {
-                cout << map[j][i].print() << " ";  
+                map[j][i].print();  
             }
             cout << endl;
         }

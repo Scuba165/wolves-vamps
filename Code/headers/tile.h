@@ -7,7 +7,7 @@ private:
     bool is_occupied;
 public:
     tile();
-    char print();
+    void print();
     void make_tree();
     void make_lake();
     void make_potion();

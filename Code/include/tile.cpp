@@ -1,4 +1,5 @@
-
+#include <iostream>
+using namespace std;
 
 class tile {
 private:
@@ -34,16 +35,20 @@ public:
     }
 
 
-    char print() {
+    void print() {
         if(this->is_tree) {
-            return 'T';
+            cout << "\033[42;35m ♣ \033[0m";
+            return;
         }
         if(this->is_lake) {
-            return 'L';  
+            cout << "\033[;44m   \033[0m";
+            return;  
         }
         if(this->is_potion) {
-            return 'P';
+            cout << "\033[42;35m § \033[0m";
+            return;
         }
-        return 'G';
+        cout << "\033[;42m   \033[0m";
+        return;
     }
 };
