@@ -36,9 +36,9 @@ void add_objects(tile* board[], int size_x, int size_y) {
 }
 
 void print_board(tile* board[], int size_x, int size_y) {
-    for(int i = 0; i < size_x; i++) {
-        for(int j = 0; j < size_y; j++) {
-            cout << board[i][j].print() << " ";  
+    for(int i = 0; i < size_y; i++) {
+        for(int j = 0; j < size_x; j++) {
+            cout << board[j][i].print() << " ";  
         }
         cout << endl;
     }
@@ -46,9 +46,11 @@ void print_board(tile* board[], int size_x, int size_y) {
 
 // Ayto tha mpei sto teliko file.
 int main() {
-    cout << "Enter map size: ";
+    srand(time(0));
+    cout << "Enter map width: ";
     int size_x;
     cin >> size_x;
+    cout << "Enter map height: ";
     int size_y;
     cin >> size_y;
     tile** board = create_board(size_x, size_y);
