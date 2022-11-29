@@ -1,22 +1,15 @@
 // TILE HEADER FILE
-
 class tile {
-    public:
-    bool is_tree = 0;
-    bool is_lake = 0;
-    bool is_potion = 0;
-    bool is_occupied = 0;
-
-    char print() {
-        if(is_tree) {
-            return 'T';
-        }
-        if(is_lake) {
-            return 'L';  
-        }
-        if(is_potion) {
-            return 'P';
-        }
-        return 'G';
-    }
-    };
+private:
+    bool is_tree;
+    bool is_lake;
+    bool is_potion;
+    bool is_occupied;
+public:
+    tile();
+    char print();
+    void make_tree();
+    void make_lake();
+    void make_potion();
+    bool can_walk_on();
+};

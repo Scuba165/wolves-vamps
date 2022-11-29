@@ -2,58 +2,81 @@
 #include "tile.cpp" // thelw na kanw include to h alla den to exw vrei
 using namespace std;
 
-tile** create_board(int size_x, int size_y) {
-    tile** board = new tile*[size_x];
-    for(int i = 0; i < size_x; i++ ) {
-        board[i] = new tile[size_y];
-    }
-    return board;
-}
-// Adds trees, lakes, potion.
-void add_objects(tile* board[], int size_x, int size_y) {
-    // Trees
-    for(int i = 0; i < (size_x*size_y / 15) + 1; i++) {
-        int x = rand() % size_x;
-        int y = rand() % size_y;
-        board[x][y].is_tree = true;
-        board[x][y].is_occupied = true;
-    }
-    // Lakes
-    for(int i = 0; i < (size_x*size_y / 20) + 1; i++) {
-        int x = rand() % size_x;
-        int y = rand() % size_y;
-        board[x][y].is_lake = true;
-        board[x][y].is_occupied = true;
-    }
-    // Potion
-    int x = rand() % size_x;
-    int y = rand() % size_y;
-    while(board[x][y].is_occupied) {
-        int x = rand() % size_x;
-        int y = rand() % size_y;
-    }
-    board[x][y].is_potion = true;
-}
 
-void print_board(tile* board[], int size_x, int size_y) {
-    for(int i = 0; i < size_y; i++) {
-        for(int j = 0; j < size_x; j++) {
-            cout << board[j][i].print() << " ";  
-        }
-        cout << endl;
+
+class board {
+    private:
+    tile** map;
+    int size_x;
+    int size_y;
+
+    public:
+    // Constructor
+    board() { 
+        cout << "Enter map width: ";
+        cin >> this->size_x;
+        cout << "Enter map height: ";
+        cin >> this->size_y;
+        map = create_board();
+    };
+
+    // Access to size
+    int get_width() {
+        return this->size_x;
     }
-}
+
+    int get_height() {
+        return this->size_y;
+    }
+
+    // Create function
+    tile** create_board() {
+        tile** map = new tile*[get_width()];
+        for(int i = 0; i < get_width(); i++ ) {
+            map[i] = new tile[get_height()];
+        }
+        return map;
+    }
+
+    // Adds trees, lakes, potion.
+    void add_objects() {
+        // Trees
+        for(int i = 0; i < (get_width()*get_height() / 15) + 1; i++) {
+            int x = rand() % get_width();
+            int y = rand() % get_height();
+            map[x][y].make_tree();
+        }
+        // Lakes
+        for(int i = 0; i < (get_width()*get_height() / 20) + 1; i++) {
+            int x = rand() % get_width();
+            int y = rand() % get_height();
+            map[x][y].make_lake();
+        }
+        // Potion
+        int x = rand() % get_width();
+        int y = rand() % get_height();
+        while(map[x][y].can_walk_on() == false) {
+            int x = rand() % get_width();
+            int y = rand() % get_height();
+        }
+        map[x][y].make_potion();
+    }
+
+    //Prints board
+    void print_board() {
+        for(int i = 0; i < get_height(); i++) {
+            for(int j = 0; j < get_width(); j++) {
+                cout << map[j][i].print() << " ";  
+            }
+            cout << endl;
+        }
+    }
+};
 
 // Ayto tha mpei sto teliko file.
 int main() {
     srand(time(0));
-    cout << "Enter map width: ";
-    int size_x;
-    cin >> size_x;
-    cout << "Enter map height: ";
-    int size_y;
-    cin >> size_y;
-    tile** board = create_board(size_x, size_y);
-    add_objects(board, size_x, size_y);
-    print_board(board, size_x, size_y);
+    board map;
+    map.add_objects();
+    map.print_board();
 }
