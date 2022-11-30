@@ -52,6 +52,10 @@ class board {
         for(int i = 0; i < (get_width()*get_height() / 20) + 1; i++) {
             x = rand() % get_width();
             y = rand() % get_height();
+            while(map[x][y].can_walk_on() == false) {
+                x = rand() % get_width();
+                y = rand() % get_height();
+            }   
             map[x][y].make_lake();
         }
         // Potion
