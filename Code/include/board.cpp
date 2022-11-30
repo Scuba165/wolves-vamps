@@ -40,30 +40,32 @@ class board {
 
     // Adds trees, lakes, potion.
     void add_objects() {
+        int x = rand() % get_width();
+        int y = rand() % get_height();
         // Trees
         for(int i = 0; i < (get_width()*get_height() / 15) + 1; i++) {
-            int x = rand() % get_width();
-            int y = rand() % get_height();
+            x = rand() % get_width();
+            y = rand() % get_height();
             map[x][y].make_tree();
         }
         // Lakes
         for(int i = 0; i < (get_width()*get_height() / 20) + 1; i++) {
-            int x = rand() % get_width();
-            int y = rand() % get_height();
+            x = rand() % get_width();
+            y = rand() % get_height();
             map[x][y].make_lake();
         }
         // Potion
-        int x = rand() % get_width();
-        int y = rand() % get_height();
+        
         while(map[x][y].can_walk_on() == false) {
-            int x = rand() % get_width();
-            int y = rand() % get_height();
+            x = rand() % get_width();
+            y = rand() % get_height();
         }
         map[x][y].make_potion();
     }
 
     //Prints board
     void print_board() {
+        system("CLS");
         for(int i = 0; i < get_height(); i++) {
             for(int j = 0; j < get_width(); j++) {
                 map[j][i].print();  

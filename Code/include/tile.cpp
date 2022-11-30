@@ -37,15 +37,15 @@ public:
 
     void print() {
         if(this->is_tree) {
-            cout << "\033[42;35m ♣ \033[0m";
+            cout << "\033[42;35m T \033[0m";
             return;
         }
         if(this->is_lake) {
-            cout << "\033[;44m   \033[0m";
+            cout << "\033[;44m L \033[0m";
             return;  
         }
         if(this->is_potion) {
-            cout << "\033[42;35m § \033[0m";
+            cout << "\033[;35m P \033[0m";
             return;
         }
         cout << "\033[;42m   \033[0m";
