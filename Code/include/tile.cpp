@@ -37,7 +37,7 @@ public:
 
     void print() {
         if(this->is_tree) {
-            cout << "\033[42;35m T \033[0m";
+            cout << "\033[0;102;1m T \033[0m";
             return;
         }
         if(this->is_lake) {
@@ -45,7 +45,7 @@ public:
             return;  
         }
         if(this->is_potion) {
-            cout << "\033[;35m P \033[0m";
+            cout << "\033[1;31;42m P \033[0m";
             return;
         }
         cout << "\033[;42m   \033[0m";
