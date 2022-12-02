@@ -1,14 +1,12 @@
 // HEADER FILE FOR CHARACTER CLASSES. 
 // tha vrw argotera public private klp
-#include "../headers/tile.h"
 #include "../headers/board.h"
+#pragma once
 
 class character {
     protected:
     virtual void move() = 0;
-    tile pos;
-
-    friend avatar::avatar(board board);
+    tile* pos;
 };
 
 class werewolf : public character {
@@ -31,7 +29,8 @@ class avatar : public character {
     int potion = 1; // Number of potions
 
     public:
-    avatar(board board) {};
+    avatar(board board);
     void use_potion();
     void move();
+    void set_pos(board board);
 };

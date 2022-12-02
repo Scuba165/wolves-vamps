@@ -1,4 +1,5 @@
 // TILE HEADER FILE
+#pragma once
 
 class tile {
 private:
@@ -13,6 +14,8 @@ public:
     void make_tree();
     void make_lake();
     void make_potion();
+    void make_occupied();
+    void make_character();
+    void free();
     bool can_walk_on();
-    void operator = (tile& b);
 };

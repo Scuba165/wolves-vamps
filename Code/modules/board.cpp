@@ -3,12 +3,12 @@
 using namespace std;
 
     // Constructor
-    board::board() { 
+    board::board(int size) { 
         cout << "Enter map width: ";
         cin >> this->size_x;
         cout << "Enter map height: ";
         cin >> this->size_y;
-        map = create_board();
+        this->map = create_board();
     };
 
     // Access to size
@@ -58,7 +58,11 @@ using namespace std;
     }
 
     //Position set
-    tile board::set_pos(int x, int y) {
+    tile* board::set_pos(int x, int y) {
+        return &map[x][y];
+    }
+    // At
+    tile board::at(int x, int y) {
         return map[x][y];
     }
 
@@ -74,10 +78,3 @@ using namespace std;
     }
 
 
-// Ayto tha mpei sto teliko file.
-int main() {
-    srand(time(0));
-    board map;
-    map.add_objects();
-    map.print_board();
-}

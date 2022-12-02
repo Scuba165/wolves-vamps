@@ -1,5 +1,6 @@
 // Header for creating the scene.
 #include "../headers/tile.h"
+#pragma once
 
 class board {
 private:
@@ -8,10 +9,11 @@ private:
     int size_y;
 
 public:
-board();
+board(int size);
 int get_width();
 int get_height();
-tile set_pos(int, int);
+tile at(int, int);
+tile* set_pos(int, int);
 tile** create_board(); // Initializes the board size.
 void add_objects(); // Adds trees, lakes, potion.
 void print_board(); // Prints board.

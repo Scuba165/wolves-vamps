@@ -24,6 +24,18 @@ using namespace std;
     void tile::make_potion() {
         this->is_potion = true;
     }
+
+    void tile::make_occupied() {
+        this->is_occupied = true; 
+    }
+
+    void tile::make_character() {
+        this->is_character = true;
+    }
+
+    void tile::free() {
+        this->is_occupied = false;
+    }
     
     bool tile::can_walk_on() {
         return (!this->is_occupied);
@@ -43,11 +55,10 @@ using namespace std;
             cout << "\033[1;31;42m P \033[0m";
             return;
         }
+        if(this->is_character) {
+            cout << "\033[;42m A \033[0m";
+            return;
+        }
         cout << "\033[;42m   \033[0m";
         return;
-    }
-
-    void tile::operator = (tile b) {
-        b.is_occupied = true;
-        b.is_character = true;
     }
