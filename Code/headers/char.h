@@ -7,7 +7,9 @@
 class character {
     protected:
     virtual void move();
+    board* where;
     tile* pos;
+    
 };
 
 class werewolf : public character {

@@ -41,6 +41,21 @@ using namespace std;
         return (!this->is_occupied);
     }
 
+    void tile::set_x(int inp) {
+        this->x = inp;
+    }
+
+    void tile::set_y(int inp) {
+        this->y = inp;
+    }
+    
+    int tile::get_x() {
+        return this->x;
+    }
+
+    int tile::get_y() {
+        return this->y;
+    }
 
     void tile::print() {
         if(this->is_tree) {

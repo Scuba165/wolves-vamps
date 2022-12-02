@@ -1,10 +1,12 @@
 #include <iostream>
+#include <windows.h>
 #include "../headers/char.h"
 using namespace std;
 
 void character::move() {}
 
 avatar::avatar(board board) {
+    this->where = &board;
     cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
     cin >> this->supp_team;
     this->set_pos(board);
@@ -23,4 +25,8 @@ void avatar::set_pos(board board) {
     this->pos->make_character();
 } 
 
-void avatar::move() {}
+void avatar::move() {
+    if(this->supp_team) {
+        this->pos = where->set_pos((pos->get_x()),((pos->get_y()) - 1));
+    }
+}
