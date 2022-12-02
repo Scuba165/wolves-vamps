@@ -1,6 +1,7 @@
 // HEADER FILE FOR CHARACTER CLASSES. 
 // tha vrw argotera public private klp
 #include "../headers/board.h"
+#define MAX_HEALTH 6
 #pragma once
 
 class character {
@@ -10,14 +11,14 @@ class character {
 };
 
 class werewolf : public character {
-    const int health = 4; // random noumero gia tests
+    const int health = MAX_HEALTH; // random noumero gia tests
     int medkits; // 0-2 rand on spawn
     const int att; // 1-3 rand on spawn
     const int def; // 1-2 rand on spawn
 };
 
 class vampire : public character {
-    const int health = 4; // random noumero gia tests
+    const int health = MAX_HEALTH; // random noumero gia tests
     int medkits; // 0-2 rand on spawn
     const int att; // 1-3 rand on spawn
     const int def; // 1-2 rand on spawn
