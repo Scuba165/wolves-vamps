@@ -9,7 +9,7 @@ private:
     int size_y;
 
 public:
-board(int size);
+board();
 int get_width();
 int get_height();
 tile at(int, int);

@@ -5,7 +5,7 @@
 
 class character {
     protected:
-    virtual void move() = 0;
+    virtual void move();
     tile* pos;
 };
 

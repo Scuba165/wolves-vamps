@@ -2,10 +2,11 @@
 #include "../headers/char.h"
 using namespace std;
 
-avatar::avatar(board board) {
-    cout << "Enter 0 to support Werewolves, 1 to support Vampires";
-    cin >> this->supp_team;
+void character::move() {}
 
+avatar::avatar(board board) {
+    cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
+    cin >> this->supp_team;
     this->set_pos(board);
 }
 
@@ -21,3 +22,5 @@ void avatar::set_pos(board board) {
     this->pos->make_occupied();
     this->pos->make_character();
 } 
+
+void avatar::move() {}

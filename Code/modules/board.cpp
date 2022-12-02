@@ -3,7 +3,7 @@
 using namespace std;
 
     // Constructor
-    board::board(int size) { 
+    board::board() { 
         cout << "Enter map width: ";
         cin >> this->size_x;
         cout << "Enter map height: ";
