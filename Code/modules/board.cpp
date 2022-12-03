@@ -1,13 +1,12 @@
 #include <iostream>
 #include "../headers/board.h"
-using namespace std;
 
     // Constructor
     board::board() { 
-        cout << "Enter map width: ";
-        cin >> this->size_x;
-        cout << "Enter map height: ";
-        cin >> this->size_y;
+        std::cout << "Enter map width: ";
+        std::cin >> this->size_x;
+        std::cout << "Enter map height: ";
+        std::cin >> this->size_y;
         this->map = create_board();
     };
 
@@ -78,7 +77,7 @@ using namespace std;
             for(int j = 0; j < get_width(); j++) {
                 map[j][i].print();  
             }
-            cout << endl;
+            std::cout << std::endl;
         }
     }
 

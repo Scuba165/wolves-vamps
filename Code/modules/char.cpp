@@ -1,14 +1,14 @@
 #include <iostream>
 #include <windows.h>
 #include "../headers/char.h"
-using namespace std;
+
 
 void character::move() {}
 
 avatar::avatar(board board) {
     this->where = &board;
-    cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
-    cin >> this->supp_team;
+    std::cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
+    std::cin >> this->supp_team;
     this->set_pos(board);
 }
 
@@ -26,7 +26,9 @@ void avatar::set_pos(board board) {
 } 
 
 void avatar::move() {
-    if(this->supp_team) {
-        this->pos = where->set_pos((pos->get_x()),((pos->get_y()) - 1));
+    if(GetKeyState('W')) {
+        this->pos->free();
+        set_pos((pos->get_x()),((pos->get_y()) - 1));
+        this->pos->make_character();
     }
 }

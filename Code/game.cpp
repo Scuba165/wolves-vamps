@@ -5,7 +5,9 @@
 #include "modules/board.cpp"
 #include "modules/char.cpp"
 #include "modules/tile.cpp"
-using namespace std;
+
+#include <stdlib.h>
+
 
 // Ayto tha mpei sto teliko file.
 int main() {
@@ -14,4 +16,7 @@ int main() {
     map.add_objects();
     avatar player = avatar(map);
     map.print_board(); 
+    Sleep(2000);
+    player.move();
+    map.print_board();
 }
