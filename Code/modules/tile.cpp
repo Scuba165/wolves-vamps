@@ -35,6 +35,9 @@
     }
 
     void tile::free() {
+        if(this->is_character) {
+            this->is_character = false;
+        } 
         this->is_occupied = false;
     }
     

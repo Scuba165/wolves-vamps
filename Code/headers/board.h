@@ -13,7 +13,7 @@ board();
 int get_width();
 int get_height();
 tile at(int, int);
-tile* set_pos(int, int);
+tile* get_pos(int, int);
 tile** create_board(); // Initializes the board size.
 void add_objects(); // Adds trees, lakes, potion.
 void print_board(); // Prints board.

@@ -16,7 +16,15 @@ int main() {
     map.add_objects();
     avatar player = avatar(map);
     map.print_board(); 
-    Sleep(2000);
+    Sleep(5000);
     player.move();
-    map.print_board();
+    system("pause");
+    map.print_board(); 
+    system("pause");
+    Sleep(5000);
+    player.move();
+    map.print_board(); 
+    Sleep(5000);
+    player.move();
+    map.add_objects();
 }

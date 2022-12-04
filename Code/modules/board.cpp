@@ -25,8 +25,8 @@
         for(int i = 0; i < get_width(); i++ ) {
             map[i] = new tile[get_height()];
             for(int j = 0; j < get_height(); j++) {
-                map[i][j].set_x(i);
-                map[i][j].set_y(j);
+                map[i][j].set_x(j);
+                map[i][j].set_y(i);
             }
         }
 
@@ -62,7 +62,7 @@
     }
 
     //Position set
-    tile* board::set_pos(int x, int y) {
+    tile* board::get_pos(int x, int y) {
         return &map[x][y];
     }
     // At
@@ -75,7 +75,7 @@
         system("CLS");
         for(int i = 0; i < get_height(); i++) {
             for(int j = 0; j < get_width(); j++) {
-                map[j][i].print();  
+               at(i, j).print();  
             }
             std::cout << std::endl;
         }
