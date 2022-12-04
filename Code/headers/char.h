@@ -33,8 +33,8 @@ class avatar : public character {
 
     public:
     avatar(board board);
+    void pos_init();
     void use_potion();
     void move();
-    void pos_init();
     void set_pos(int x, int y);
 };

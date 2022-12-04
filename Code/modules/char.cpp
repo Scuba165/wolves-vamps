@@ -25,14 +25,27 @@ void avatar::pos_init() {
 } 
 
 void avatar::set_pos(int x, int y) {
+    std::cout << "A";
     this->pos->free();
-    this->pos = where->get_pos(x, y);
-    std::cout << pos->get_x() << pos->get_y();
+    std::cout << "A";
+    this->pos = where->get_pos(3, 5);
+    std::cout << "A";
     this->pos->make_character();
+    std::cout << "A";
 }
 
 void avatar::move() {
     //if(GetAsyncKeyState('W') & 0x8000) {
-        this->set_pos(1, 1);
+        std::cout << pos->get_x() << pos->get_y();
+        //this->set_pos(1, 1);
+        std::cout << "A";
+    this->pos->free();
+    std::cout << "A";
+    tile* a = this->where->get_pos(1, 1);
+    std::cout << "A";
+    this->pos = a;
+    std::cout << "A";
+    this->pos->make_character();
+    std::cout << "A";
     //}
 }

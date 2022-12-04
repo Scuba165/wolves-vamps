@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "headers/board.h"
 #include "headers/char.h"
 #include "headers/tile.h"
@@ -6,7 +7,7 @@
 #include "modules/char.cpp"
 #include "modules/tile.cpp"
 
-#include <stdlib.h>
+
 
 
 // Ayto tha mpei sto teliko file.
@@ -18,6 +19,7 @@ int main() {
     map.print_board(); 
     Sleep(5000);
     player.move();
+    std::cout << "Player moved";
     system("pause");
     map.print_board(); 
     system("pause");
@@ -26,5 +28,4 @@ int main() {
     map.print_board(); 
     Sleep(5000);
     player.move();
-    map.add_objects();
 }
