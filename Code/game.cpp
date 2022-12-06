@@ -19,6 +19,6 @@ int main() {
     while(!GetAsyncKeyState('N')) {
         map.print_board();
         Sleep(200);
-        player.move();
+        player.move(map);
     }
 }

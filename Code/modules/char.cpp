@@ -24,29 +24,33 @@ void avatar::pos_init() {
     this->pos->make_character();
 } 
 
-void avatar::move() {
+void avatar::move(board board) {
     // MOVE LEFT
-    if(GetAsyncKeyState('A')) {
+    if(GetAsyncKeyState('A') && (this->pos->get_x() > 0)) {
         this->pos->free();
         this->pos--;
         this->pos->make_character();
+        return;
     }
     // MOVE RIGHT
-    if(GetAsyncKeyState('D')) {
+    if(GetAsyncKeyState('D') && (this->pos->get_x() < board.get_width() - 1)) {
         this->pos->free();
         this->pos++;
         this->pos->make_character();
+        return;
     }
     // MOVE UP
-    if(GetAsyncKeyState('W')) {
+    if(GetAsyncKeyState('W') && (this->pos->get_y() > 0)) {
         this->pos->free();
         this->pos -= 11;
         this->pos->make_character();
+        return;
     }
     // MOVE DOWN 
-    if(GetAsyncKeyState('S')) {
+    if(GetAsyncKeyState('S') && (this->pos->get_y() < board.get_height() - 1)) {
         this->pos->free();
         this->pos += 11;
         this->pos->make_character();
+        return;
     }
 }
