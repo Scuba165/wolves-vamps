@@ -24,7 +24,7 @@ void avatar::pos_init() {
     this->pos->make_character();
 } 
 
-void avatar::move(board board) {
+void avatar::move() {
     // MOVE LEFT
     if(GetAsyncKeyState('A') && (this->pos->get_x() > 0)) {
         this->pos->free();
@@ -33,7 +33,7 @@ void avatar::move(board board) {
         return;
     }
     // MOVE RIGHT
-    if(GetAsyncKeyState('D') && (this->pos->get_x() < board.get_width() - 1)) {
+    if(GetAsyncKeyState('D') && (this->pos->get_x() < where->get_width() - 1)) {
         this->pos->free();
         this->pos++;
         this->pos->make_character();
@@ -47,7 +47,7 @@ void avatar::move(board board) {
         return;
     }
     // MOVE DOWN 
-    if(GetAsyncKeyState('S') && (this->pos->get_y() < board.get_height() - 1)) {
+    if(GetAsyncKeyState('S') && (this->pos->get_y() < where->get_height() - 1)) {
         this->pos->free();
         this->pos += 11;
         this->pos->make_character();
