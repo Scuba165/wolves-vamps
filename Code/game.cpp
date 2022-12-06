@@ -15,17 +15,10 @@ int main() {
     srand(time(0));
     board map = board();
     map.add_objects();
-    avatar player = avatar(map);
-    map.print_board(); 
-    Sleep(5000);
-    player.move();
-    std::cout << "Player moved";
-    system("pause");
-    map.print_board(); 
-    system("pause");
-    Sleep(5000);
-    player.move();
-    map.print_board(); 
-    Sleep(5000);
-    player.move();
+    avatar player = avatar(map); 
+    while(!GetAsyncKeyState('N')) {
+        map.print_board();
+        Sleep(200);
+        player.move();
+    }
 }

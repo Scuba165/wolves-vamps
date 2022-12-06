@@ -24,28 +24,29 @@ void avatar::pos_init() {
     this->pos->make_character();
 } 
 
-void avatar::set_pos(int x, int y) {
-    std::cout << "A";
-    this->pos->free();
-    std::cout << "A";
-    this->pos = where->get_pos(3, 5);
-    std::cout << "A";
-    this->pos->make_character();
-    std::cout << "A";
-}
-
 void avatar::move() {
-    //if(GetAsyncKeyState('W') & 0x8000) {
-        std::cout << pos->get_x() << pos->get_y();
-        //this->set_pos(1, 1);
-        std::cout << "A";
-    this->pos->free();
-    std::cout << "A";
-    tile* a = this->where->get_pos(1, 1);
-    std::cout << "A";
-    this->pos = a;
-    std::cout << "A";
-    this->pos->make_character();
-    std::cout << "A";
-    //}
+    // MOVE LEFT
+    if(GetAsyncKeyState('A')) {
+        this->pos->free();
+        this->pos--;
+        this->pos->make_character();
+    }
+    // MOVE RIGHT
+    if(GetAsyncKeyState('D')) {
+        this->pos->free();
+        this->pos++;
+        this->pos->make_character();
+    }
+    // MOVE UP
+    if(GetAsyncKeyState('W')) {
+        this->pos->free();
+        this->pos -= 11;
+        this->pos->make_character();
+    }
+    // MOVE DOWN 
+    if(GetAsyncKeyState('S')) {
+        this->pos->free();
+        this->pos += 11;
+        this->pos->make_character();
+    }
 }

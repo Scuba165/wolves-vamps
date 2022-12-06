@@ -61,7 +61,7 @@
         map[x][y].make_potion();
     }
 
-    //Position set
+    //Position get
     tile* board::get_pos(int x, int y) {
         return &map[x][y];
     }

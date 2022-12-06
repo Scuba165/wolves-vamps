@@ -37,7 +37,7 @@
     void tile::free() {
         if(this->is_character) {
             this->is_character = false;
-        } 
+        }
         this->is_occupied = false;
     }
     
@@ -62,6 +62,10 @@
     }
 
     void tile::print() {
+        if(this->is_character) {
+            std::cout << "\033[;42m A \033[0m";
+            return;
+        }
         if(this->is_tree) {
             std::cout << "\033[0;102;1m T \033[0m";
             return;
@@ -72,10 +76,6 @@
         }
         if(this->is_potion) {
             std::cout << "\033[1;31;42m P \033[0m";
-            return;
-        }
-        if(this->is_character) {
-            std::cout << "\033[;42m A \033[0m";
             return;
         }
         std::cout << "\033[;42m   \033[0m";
