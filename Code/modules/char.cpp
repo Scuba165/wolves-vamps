@@ -5,8 +5,8 @@
 
 void character::move() {}
 
-avatar::avatar(board board) {
-    this->where = &board;
+avatar::avatar(board inp) {
+    this->where = &inp;
     std::cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
     std::cin >> this->supp_team;
     this->pos_init();
@@ -24,7 +24,8 @@ void avatar::pos_init() {
     this->pos->make_character();
 } 
 
-void avatar::move() {
+void avatar::move(board inp) {
+    this->where = &inp;
     // MOVE LEFT
     if(GetAsyncKeyState('A') && (this->pos->get_x() > 0)) {
         this->pos->free();
@@ -41,15 +42,18 @@ void avatar::move() {
     }
     // MOVE UP
     if(GetAsyncKeyState('W') && (this->pos->get_y() > 0)) {
-        this->pos->free();
-        this->pos -= 11;
-        this->pos->make_character();
+        // tile* new_pos = where->get_pos(this->pos->get_x(), this->pos->get_y() - 1);
+        // if(new_pos->can_walk_on()) {
+            this->pos->free();
+            this->pos -= where->get_height() + 1;
+            this->pos->make_character();
+        //}
         return;
     }
     // MOVE DOWN 
     if(GetAsyncKeyState('S') && (this->pos->get_y() < where->get_height() - 1)) {
         this->pos->free();
-        this->pos += 11;
+        this->pos += where->get_height() + 1;
         this->pos->make_character();
         return;
     }

@@ -35,5 +35,5 @@ class avatar : public character {
     avatar(board board);
     void pos_init();
     void use_potion();
-    void move();
+    void move(board inp);
 };
