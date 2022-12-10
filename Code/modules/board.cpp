@@ -73,7 +73,14 @@
     //Prints board
     void board::print_board() {
         system("CLS");
-        std::cout << "\033[;42m DAY \033[0m" << std::endl;
+        for(int i = 0; i < (get_width()/2)-2; i++) { 
+            std::cout << "   ";
+        }
+        std::cout << "   NIGHT";
+        for(int j = 0; j < (get_width()/2)-1; j++) { 
+            std::cout << "   ";
+        }
+        std::cout << std::endl;
         for(int i = 0; i < get_height(); i++) {
             for(int j = 0; j < get_width(); j++) {
                at(i, j).print();  

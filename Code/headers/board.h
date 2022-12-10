@@ -1,4 +1,4 @@
-// Header for creating the scene.
+// HEADER FOR CLASS BOARD
 #include "../headers/tile.h"
 #pragma once
 

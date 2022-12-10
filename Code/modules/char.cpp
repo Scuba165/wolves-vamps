@@ -5,6 +5,7 @@
 
 void character::move() {}
 
+//idea: constructor gia yperklash
 avatar::avatar(board inp) {
     this->where = &inp;
     std::cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
@@ -35,6 +36,10 @@ void avatar::move(board inp) {
             this->pos = where->get_pos(curr_x - 1, curr_y);
             this->pos->make_character();
         }
+        if (this->pos->is_pot()) {
+            this->pos->make_grass();
+            this->pot_count++;
+        }
         return;
     }
     // MOVE RIGHT
@@ -43,6 +48,10 @@ void avatar::move(board inp) {
             this->pos->free();
             this->pos = where->get_pos(curr_x + 1, curr_y);
             this->pos->make_character();
+        }
+        if (this->pos->is_pot()) {
+            this->pos->make_grass();
+            this->pot_count++;
         }
         return;
     }
@@ -53,6 +62,10 @@ void avatar::move(board inp) {
             this->pos = where->get_pos(curr_x, curr_y - 1);
             this->pos->make_character();
         }
+        if (this->pos->is_pot()) {
+            this->pos->make_grass();
+            this->pot_count++;
+        }
         return;
     }
     // MOVE DOWN 
@@ -61,6 +74,10 @@ void avatar::move(board inp) {
             this->pos->free();
             this->pos = where->get_pos(curr_x, curr_y + 1);
             this->pos->make_character();
+        }
+        if (this->pos->is_pot()) {
+            this->pos->make_grass();
+            this->pot_count++;
         }
         return;
     }

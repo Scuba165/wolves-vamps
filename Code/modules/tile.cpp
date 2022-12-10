@@ -11,6 +11,16 @@
         this->is_occupied = 0;
     }
 
+    // Potion picked-up or Entity Unalives
+    void tile::make_grass() {
+        if(this->is_potion) {
+            this->is_potion = false;
+            return;
+        }
+        this->is_character = false;
+        this->is_occupied = false;
+    }
+
     void tile::make_tree() {
         this->is_tree = true;
         this->is_occupied = true;
@@ -59,6 +69,10 @@
 
     int tile::get_y() {
         return this->y;
+    }
+
+    bool tile::is_pot() {
+        return this->is_potion;
     }
 
     void tile::print() {

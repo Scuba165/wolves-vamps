@@ -1,5 +1,4 @@
-// HEADER FILE FOR CHARACTER CLASSES. 
-// tha vrw argotera public private klp
+// HEADER FILE FOR CLASS CHARACTER AND SUBCLASSES 
 #include "../headers/board.h"
 #define MAX_HEALTH 6
 #pragma once
@@ -29,10 +28,10 @@ class vampire : public character {
 class avatar : public character {
     private:
     bool supp_team; // 0 for Werewolves, 1 for Vampires
-    int potion = 1; // Number of potions
+    int pot_count = 1; // Number of potions
 
     public:
-    avatar(board board);
+    avatar(board inp);
     void pos_init();
     void use_potion();
     void move(board inp);

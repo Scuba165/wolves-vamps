@@ -1,4 +1,4 @@
-// TILE HEADER FILE
+// HEADER FOR CLASS TILE
 #pragma once
 
 class tile {
@@ -17,11 +17,13 @@ public:
     void set_y(int);
     int get_x();
     int get_y();
+    void make_grass();
     void make_tree();
     void make_lake();
     void make_potion();
     void make_occupied();
     void make_character();
     void free();
+    bool is_pot();
     bool can_walk_on();
 };
