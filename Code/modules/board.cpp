@@ -25,8 +25,8 @@
         for(int i = 0; i < get_width(); i++ ) {
             map[i] = new tile[get_height()];
             for(int j = 0; j < get_height(); j++) {
-                map[i][j].set_x(j);
-                map[i][j].set_y(i);
+                map[i][j].set_x(i);
+                map[i][j].set_y(j);
             }
         }
 

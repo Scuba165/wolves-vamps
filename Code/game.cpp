@@ -18,7 +18,7 @@ int main() {
     avatar player = avatar(map); 
     while(!GetAsyncKeyState('N')) {
         map.print_board();
-        Sleep(1000/3);
+        system("PAUSE");
         player.move(map);
     }
 }

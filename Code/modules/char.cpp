@@ -26,22 +26,25 @@ void avatar::pos_init() {
 
 void avatar::move(board inp) {
     this->where = &inp;
+    int curr_x = this->pos->get_x();
+    int curr_y = this->pos->get_y();
     // MOVE LEFT
-    if(GetAsyncKeyState('A') && (this->pos->get_x() > 0)) {
+    if(GetAsyncKeyState('A') && (curr_x > 0) &&
+        where->get_pos(curr_x - 1, curr_y)->can_walk_on()) {
         this->pos->free();
         this->pos--;
         this->pos->make_character();
         return;
     }
     // MOVE RIGHT
-    if(GetAsyncKeyState('D') && (this->pos->get_x() < where->get_width() - 1)) {
+    if(GetAsyncKeyState('D') && (curr_x < where->get_width() - 1)) {
         this->pos->free();
         this->pos++;
         this->pos->make_character();
         return;
     }
     // MOVE UP
-    if(GetAsyncKeyState('W') && (this->pos->get_y() > 0)) {
+    if(GetAsyncKeyState('W') && (curr_y > 0)) {
         // tile* new_pos = where->get_pos(this->pos->get_x(), this->pos->get_y() - 1);
         // if(new_pos->can_walk_on()) {
             this->pos->free();
@@ -51,7 +54,7 @@ void avatar::move(board inp) {
         return;
     }
     // MOVE DOWN 
-    if(GetAsyncKeyState('S') && (this->pos->get_y() < where->get_height() - 1)) {
+    if(GetAsyncKeyState('S') && (curr_y < where->get_height() - 1)) {
         this->pos->free();
         this->pos += where->get_height() + 1;
         this->pos->make_character();

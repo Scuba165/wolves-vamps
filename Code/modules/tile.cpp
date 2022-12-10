@@ -42,7 +42,7 @@
     }
     
     bool tile::can_walk_on() {
-        return (!this->is_occupied);
+        return !(this->is_occupied);
     }
 
     void tile::set_x(int inp) {
