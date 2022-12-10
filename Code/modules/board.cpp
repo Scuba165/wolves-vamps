@@ -62,17 +62,18 @@
     }
 
     //Position get
-    tile* board::get_pos(int x, int y) {
-        return &map[x][y];
+    tile* board::get_pos(int y, int x) {
+        return &map[y][x];
     }
     // At
     tile board::at(int x, int y) {
-        return map[x][y];
+        return map[y][x];
     }
 
     //Prints board
     void board::print_board() {
         system("CLS");
+        std::cout << "\033[;42m DAY \033[0m" << std::endl;
         for(int i = 0; i < get_height(); i++) {
             for(int j = 0; j < get_width(); j++) {
                at(i, j).print();  
