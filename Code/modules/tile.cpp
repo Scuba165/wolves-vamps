@@ -13,12 +13,7 @@
 
     // Potion picked-up or Entity Unalives
     void tile::make_grass() {
-        if(this->is_potion) {
             this->is_potion = false;
-            return;
-        }
-        this->is_character = false;
-        this->is_occupied = false;
     }
 
     void tile::make_tree() {

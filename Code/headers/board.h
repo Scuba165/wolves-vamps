@@ -4,16 +4,16 @@
 
 class board {
 private:
-    tile** map;
-    int size_x;
-    int size_y;
+    tile** map; // Map. [2D tile array].
+    int size_x; // Width.
+    int size_y; // Height.
 
 public:
-board();
-int get_width();
-int get_height();
-tile at(int, int);
-tile* get_pos(int, int);
+board(); // Constructor.
+int get_width(); // Returns width of board.
+int get_height(); // Returns height of board.
+tile at(int, int); // Returns tile of given position.
+tile* get_pos(int, int); // Returns pointer to position.
 tile** create_board(); // Initializes the board size.
 void add_objects(); // Adds trees, lakes, potion.
 void print_board(); // Prints board.

@@ -18,7 +18,18 @@ int main() {
     avatar player = avatar(map); 
     while(!GetAsyncKeyState('N')) {
         map.print_board();
-        system("PAUSE");
+        Sleep(500);
         player.move(map);
     }
+    // Main meta to struct state
+    /* while (state->playing) {
+            if(!state->paused) {
+                do_game_loop(); //print board, update
+            }
+            if(state->paused) {
+                ...
+            }
+        }
+        state->game_over();
+    }*/
 }

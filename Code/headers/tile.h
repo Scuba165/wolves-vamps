@@ -3,7 +3,7 @@
 
 class tile {
 private:
-    int x;
+    int x; 
     int y;
     bool is_tree;
     bool is_lake;
@@ -11,19 +11,21 @@ private:
     bool is_occupied;
     bool is_character;
 public:
-    tile();
-    void print();
-    void set_x(int);
-    void set_y(int);
-    int get_x();
-    int get_y();
-    void make_grass();
-    void make_tree();
-    void make_lake();
-    void make_potion();
-    void make_occupied();
-    void make_character();
-    void free();
-    bool is_pot();
-    bool can_walk_on();
+    tile(); // Constructor, sets bools to 0.
+    void print(); // Prints content.
+    void set_x(int); // Sets X when board inits.
+    void set_y(int); // Sets Y when board inits.
+    int get_x(); // Returns X.
+    int get_y(); // Returns Y.
+    void make_grass(); // Potion to Grass.
+    void make_tree(); // Generates tree.
+    void make_lake(); // Generates lake.
+    void make_potion(); // Generates potion.
+    void make_occupied(); // Occupies tile for current turn.
+    void make_character(); // Character is on tile.
+    void make_werewolf(); // Werewolf is on tile.
+    void make_vampire(); // Vampire is on tile.
+    void free(); // Entity is no longer on tile.
+    bool is_pot(); // Checks tile for potion
+    bool can_walk_on(); // Checks tile for occupancy.
 };

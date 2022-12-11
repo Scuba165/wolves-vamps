@@ -3,7 +3,7 @@
 #include "../headers/char.h"
 
 
-void character::move() {}
+void character::move(board inp) {}
 
 //idea: constructor gia yperklash
 avatar::avatar(board inp) {
