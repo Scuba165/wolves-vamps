@@ -30,7 +30,7 @@ void avatar::move(board inp) {
     int curr_x = this->pos->get_x();
     int curr_y = this->pos->get_y();
     // MOVE LEFT
-    if(GetAsyncKeyState('A') && (curr_x > 0)) {
+    if((GetAsyncKeyState('A') & 0x8000) && (curr_x > 0)) {
         if(where->get_pos(curr_x - 1, curr_y)->can_walk_on()) {
             this->pos->free();
             this->pos = where->get_pos(curr_x - 1, curr_y);
@@ -43,7 +43,7 @@ void avatar::move(board inp) {
         return;
     }
     // MOVE RIGHT
-    if(GetAsyncKeyState('D') && (curr_x < where->get_width() - 1)) {
+    if((GetAsyncKeyState('D') & 0x8000) && (curr_x < where->get_width() - 1)) {
         if(where->get_pos(curr_x + 1, curr_y)->can_walk_on()) {
             this->pos->free();
             this->pos = where->get_pos(curr_x + 1, curr_y);
@@ -56,7 +56,7 @@ void avatar::move(board inp) {
         return;
     }
     // MOVE UP
-    if(GetAsyncKeyState('W') && (curr_y > 0)) {
+    if((GetAsyncKeyState('W') & 0x8000) && (curr_y > 0)) {
         if(where->get_pos(curr_x, curr_y - 1)->can_walk_on()) {
             this->pos->free();
             this->pos = where->get_pos(curr_x, curr_y - 1);
@@ -69,7 +69,7 @@ void avatar::move(board inp) {
         return;
     }
     // MOVE DOWN 
-    if(GetAsyncKeyState('S') && (curr_y < where->get_height() - 1)) {
+    if((GetAsyncKeyState('S') & 0x8000) && (curr_y < where->get_height() - 1)) {
         if(where->get_pos(curr_x, curr_y + 1)->can_walk_on()) {
             this->pos->free();
             this->pos = where->get_pos(curr_x, curr_y + 1);
@@ -81,4 +81,8 @@ void avatar::move(board inp) {
         }
         return;
     }
+}
+
+int avatar::get_pots() {
+    return this->pot_count;
 }

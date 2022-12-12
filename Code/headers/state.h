@@ -7,17 +7,17 @@ class state {
     private:
     bool playing;
     bool paused;
-    bool game_over;
     bool day;
     int dn_cycle;
+    avatar* player;
     
     public:
-    state();
+    state(avatar inp);
     bool is_playing();
     bool is_paused();
-    bool is_over();
     void toggle_pause();
     bool is_day();
     void do_dn_cycle();
-    void update_board(board board);
+    void update(board board);
+    void pause_menu();
 };

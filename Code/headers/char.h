@@ -34,5 +34,6 @@ class avatar : public character {
     avatar(board inp); // Constructor.
     void pos_init(); // Initializes position.
     void use_potion(); // Uses potion.
-    void move(board inp); // Virtual function. 
+    void move(board inp); // Virtual function.
+    int get_pots(); // Returns potion number. 
 };

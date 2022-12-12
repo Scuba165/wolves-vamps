@@ -2,10 +2,10 @@
 #include <iostream>
 #include <windows.h>
 
-state::state() {
+state::state(avatar inp) {
+    player = &inp;
     this->playing = true;
     this->paused = false;
-    this->game_over = false;
     this->dn_cycle = 0;
     this->day = true;
 }
@@ -26,10 +26,6 @@ bool state::is_paused() {
     return this->paused;
 }
 
-bool state::is_over() {
-    return this->game_over;
-}
-
 bool state::is_day() {
     return this->day;
 }
@@ -47,7 +43,7 @@ void state::do_dn_cycle() {
     }
 }
 
-void state::update_board(board board) {
+void state::update(board board) {
     system("CLS");
     if(is_day()) {
         for(int i = 0; i < (board.get_width()/2)-2; i++) { 
@@ -69,5 +65,24 @@ void state::update_board(board board) {
     }
     do_dn_cycle();
     board.print_board();
+    if(GetAsyncKeyState('P')) {
+        toggle_pause();
+    }
+    if(GetAsyncKeyState('N')) {
+        this->playing = false;
+    }
     Sleep(500);
+}
+
+void state::pause_menu() {
+    std::cout << "\e[1;31mGame is paused. Press 'P' to resume or 'N' to end the game!\e[1;31m" << std::endl;
+    std::cout << "\e[1;31mPlayer has \e[1;31m" << this->player->get_pots() << "\e[1;31m potion(s) left.\e[1;31m" << std::endl;
+    if(GetAsyncKeyState('P') & 0x8000) {
+        toggle_pause();
+    }
+    if(GetAsyncKeyState('N') & 0x8000) {
+        this->playing = false;
+    }
+    system("PAUSE");
+    std::cout << "\e[0m";
 }
