@@ -10,6 +10,9 @@ private:
     bool is_potion;
     bool is_occupied;
     bool is_character;
+    bool is_ww;
+    bool is_vamp;
+    
 public:
     tile(); // Constructor, sets bools to 0.
     void print(); // Prints content.

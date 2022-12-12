@@ -69,5 +69,5 @@ void state::update_board(board board) {
     }
     do_dn_cycle();
     board.print_board();
-    system("PAUSE");
+    Sleep(500);
 }
