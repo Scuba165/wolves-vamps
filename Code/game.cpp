@@ -19,10 +19,13 @@ int main() {
     board map = board();
     map.add_objects();
     avatar player = avatar(map);
-    state gamestate;
-    while(!GetAsyncKeyState('N')) {
+    state gamestate = state(player);
+    while(gamestate.is_playing() && !(gamestate.is_over())) {
+        if(gamestate.is_paused()) {
+            gamestate.pause_menu();
+        }
         player.move(map);
-        gamestate.update_board(map);
+        gamestate.update(map);
     }
     // Main meta to struct state
     /* while (state->playing) {
