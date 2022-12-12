@@ -77,12 +77,22 @@ void avatar::move(board inp) {
         }
         if (this->pos->is_pot()) {
             this->pos->make_grass();
-            this->pot_count++;
+            pot_count += 1;
         }
         return;
+    }
+    if(GetAsyncKeyState(VK_SPACE)) {
+        use_potion();
+        std::cout << "func called";
+        system("PAUSE");
     }
 }
 
 int avatar::get_pots() {
     return this->pot_count;
+}
+
+void avatar::use_potion() {
+    pot_count -= 1;
+    // ......
 }

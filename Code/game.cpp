@@ -42,4 +42,5 @@ int main() {
     std::cout << "\e[1;31mThe game lasted \e[1;31m" << rounds << "\e[1;31m turns\e[1;31m" << std::endl;
     system("PAUSE");
     std::cout << "\e[0m";
+    system("CLS");
 }
