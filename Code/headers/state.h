@@ -1,15 +1,26 @@
 // HEADER FOR CLASS STATE
+#include "board.h"
+#include "char.h"
+#include <vector>
 
 class state {
     private:
     bool playing;
     bool paused;
     bool game_over;
+    bool day;
     int dn_cycle;
     
     public:
-    void is_playing();
-    void is_paused();
-    void is_over();
+    state();
+    bool is_playing();
+    bool is_paused();
+    bool is_over();
+    void toggle_pause();
+    bool is_day();
     void do_dn_cycle();
+    void do_game_loop(board board, 
+                    avatar player,
+                    std::vector<werewolf> ww,
+                    std::vector<vampire> vamp);
 };

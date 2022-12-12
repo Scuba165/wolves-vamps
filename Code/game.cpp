@@ -6,6 +6,7 @@
 #include "modules/board.cpp"
 #include "modules/char.cpp"
 #include "modules/tile.cpp"
+#include <windows.h>
 
 
 
