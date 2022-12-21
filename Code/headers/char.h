@@ -28,7 +28,8 @@ class vampire : public character {
 class avatar : public character {
     private:
     bool supp_team; // 0 for Werewolves, 1 for Vampires, player input.
-    int pot_count = 1; // Number of potions
+    protected:
+    int pot_count; // Number of potions
 
     public:
     avatar(board inp); // Constructor.

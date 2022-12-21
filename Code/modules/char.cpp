@@ -4,12 +4,13 @@
 
 
 void character::move(board inp) {}
+// AVATAR FUNCTIONS
 
-//idea: constructor gia yperklash
 avatar::avatar(board inp) {
     this->where = &inp;
     std::cout << "Enter 0 to support Werewolves, 1 to support Vampires: ";
     std::cin >> this->supp_team;
+    this->pot_count = 1;
     this->pos_init();
 }
 
@@ -38,7 +39,7 @@ void avatar::move(board inp) {
         }
         if (this->pos->is_pot()) {
             this->pos->make_grass();
-            this->pot_count++;
+            pot_count++;
         }
         return;
     }
@@ -51,7 +52,7 @@ void avatar::move(board inp) {
         }
         if (this->pos->is_pot()) {
             this->pos->make_grass();
-            this->pot_count++;
+            pot_count++;
         }
         return;
     }
@@ -64,7 +65,7 @@ void avatar::move(board inp) {
         }
         if (this->pos->is_pot()) {
             this->pos->make_grass();
-            this->pot_count++;
+            pot_count++;
         }
         return;
     }
@@ -77,10 +78,11 @@ void avatar::move(board inp) {
         }
         if (this->pos->is_pot()) {
             this->pos->make_grass();
-            pot_count += 1;
+            pot_count++;
         }
         return;
     }
+    // POTION USAGE
     if(GetAsyncKeyState(VK_SPACE)) {
         use_potion();
         std::cout << "func called";
@@ -93,6 +95,8 @@ int avatar::get_pots() {
 }
 
 void avatar::use_potion() {
-    pot_count -= 1;
+    this->pot_count = 0;
     // ......
 }
+
+// werewolves vamps
