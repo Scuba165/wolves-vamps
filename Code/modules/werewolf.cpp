@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "../headers/char.h"
+#include <vector>
 
 
 Werewolf::Werewolf(board map) {

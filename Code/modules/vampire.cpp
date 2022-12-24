@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <vector>
 #include "../headers/char.h"
 
 Vampire::Vampire(board map) {
