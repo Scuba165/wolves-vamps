@@ -36,64 +36,45 @@ void Werewolf::pos_init() {
     this->pos->make_werewolf();
 } 
 
-void Werewolf::move(board map) {} // + rand direction kai GetKey -> result
-//     this->where = &map;
-//     int curr_x = this->pos->get_x();
-//     int curr_y = this->pos->get_y();
-//     // MOVE LEFT
-//     if((GetAsyncKeyState('A') & 0x8000) && (curr_x > 0)) {
-//         if(where->get_pos(curr_x - 1, curr_y)->can_walk_on()) {
-//             this->pos->free();
-//             this->pos = where->get_pos(curr_x - 1, curr_y);
-//             this->pos->make_character();
-//         }
-//         if (this->pos->is_pot()) {
-//             this->pos->make_grass();
-//             pot_count++;
-//         }
-//         return;
-//     }
-//     // MOVE RIGHT
-//     if((GetAsyncKeyState('D') & 0x8000) && (curr_x < where->get_width() - 1)) {
-//         if(where->get_pos(curr_x + 1, curr_y)->can_walk_on()) {
-//             this->pos->free();
-//             this->pos = where->get_pos(curr_x + 1, curr_y);
-//             this->pos->make_character();
-//         }
-//         if (this->pos->is_pot()) {
-//             this->pos->make_grass();
-//             pot_count++;
-//         }
-//         return;
-//     }
-//     // MOVE UP
-//     if((GetAsyncKeyState('W') & 0x8000) && (curr_y > 0)) {
-//         if(where->get_pos(curr_x, curr_y - 1)->can_walk_on()) {
-//             this->pos->free();
-//             this->pos = where->get_pos(curr_x, curr_y - 1);
-//             this->pos->make_character();
-//         }
-//         if (this->pos->is_pot()) {
-//             this->pos->make_grass();
-//             pot_count++;
-//         }
-//         return;
-//     }
-//     // MOVE DOWN 
-//     if((GetAsyncKeyState('S') & 0x8000) && (curr_y < where->get_height() - 1)) {
-//         if(where->get_pos(curr_x, curr_y + 1)->can_walk_on()) {
-//             this->pos->free();
-//             this->pos = where->get_pos(curr_x, curr_y + 1);
-//             this->pos->make_character();
-//         }
-//         if (this->pos->is_pot()) {
-//             this->pos->make_grass();
-//             pot_count++;
-//         }
-//         return;
-//     }
+void Werewolf::move(board map) { // + rand direction kai GetKey -> result
+     this->where = &map;
+     int curr_x = this->pos->get_x();
+     int curr_y = this->pos->get_y();
+     int randDirection = rand() % 4;
+     if((randDirection == 0) && (curr_x > 0)) {
+         if(where->get_pos(curr_x - 1, curr_y)->can_walk_on()) {
+             this->pos->free();
+             this->pos = where->get_pos(curr_x - 1, curr_y);
+             this->pos->make_werewolf();
+         }
+         return;
+     }
+     if((randDirection == 1) && (curr_x < where->get_width() - 1)) {
+         if(where->get_pos(curr_x + 1, curr_y)->can_walk_on()) {
+             this->pos->free();
+             this->pos = where->get_pos(curr_x + 1, curr_y);
+             this->pos->make_werewolf();
+         }
+         return;
+     }
+     if((randDirection == 2) && (curr_y > 0)) {
+         if(where->get_pos(curr_x, curr_y - 1)->can_walk_on()) {
+             this->pos->free();
+             this->pos = where->get_pos(curr_x, curr_y - 1);
+             this->pos->make_werewolf();
+         }
+         return;
+     }
+     if((randDirection == 3) && (curr_y < where->get_height() - 1)) {
+         if(where->get_pos(curr_x, curr_y + 1)->can_walk_on()) {
+             this->pos->free();
+             this->pos = where->get_pos(curr_x, curr_y + 1);
+             this->pos->make_werewolf();
+         }
+         return;
+     }
 
-// }
+ }
 
 // int main() {
 //     int x, y;
