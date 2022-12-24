@@ -13,11 +13,6 @@
 #include "modules/vampire.cpp"
 #include <windows.h>
 
-
-
-
-
-// Ayto tha mpei sto teliko file.
 int main() {
     int rounds = 0;
     srand(time(0));

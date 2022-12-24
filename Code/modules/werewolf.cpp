@@ -33,7 +33,7 @@ void Werewolf::move(board map) { // + rand direction kai GetKey -> result
      this->where = &map;
      int curr_x = this->pos->get_x();
      int curr_y = this->pos->get_y();
-     int randDirection = rand() % 4;
+     int randDirection = rand() % 5;
      if((randDirection == 0) && (curr_x > 0)) {
          if(where->get_pos(curr_x - 1, curr_y)->can_walk_on()) {
              this->pos->free();
@@ -65,6 +65,9 @@ void Werewolf::move(board map) { // + rand direction kai GetKey -> result
              this->pos->make_werewolf();
          }
          return;
+      if(randDirection == 4) {
+        return;
+      }
      }
 }
 

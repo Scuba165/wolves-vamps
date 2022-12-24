@@ -33,7 +33,7 @@ void Vampire::move(board map) {
      this->where = &map;
      int curr_x = this->pos->get_x();
      int curr_y = this->pos->get_y();
-     int randDirection = rand() % 8;
+     int randDirection = rand() % 9;
      if((randDirection == 0) && (curr_x > 0)) {
          if(where->get_pos(curr_x - 1, curr_y)->can_walk_on()) {
              this->pos->free();
@@ -98,6 +98,9 @@ void Vampire::move(board map) {
          }
          return;
      }
+    if(randDirection == 8) {
+        return;
+      }
 }
 
 void Vampire::scan(board map, std::vector<Vampire> vamps, std::vector<Werewolf> ww) {
