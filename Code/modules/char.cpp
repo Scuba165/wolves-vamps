@@ -83,10 +83,8 @@ void avatar::move(board inp) {
         return;
     }
     // POTION USAGE
-    if(GetAsyncKeyState(VK_SPACE)) {
+    if(GetAsyncKeyState(VK_SPACE) && this->pot_count > 0) {
         use_potion();
-        std::cout << "func called";
-        system("PAUSE");
     }
 }
 
@@ -95,8 +93,6 @@ int avatar::get_pots() {
 }
 
 void avatar::use_potion() {
-    this->pot_count = 0;
+    this->pot_count--;
     // ......
 }
-
-// werewolves vamps

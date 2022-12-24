@@ -19,5 +19,5 @@ class state {
     bool is_day();
     void do_dn_cycle();
     void update(board board);
-    void pause_menu();
+    void pause_menu(std::vector<Werewolf> Werewolves, std::vector<Vampire> Vampires, avatar player);
 };

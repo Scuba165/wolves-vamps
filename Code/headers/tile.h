@@ -12,7 +12,7 @@ private:
     bool is_character;
     bool is_ww;
     bool is_vamp;
-    
+
 public:
     tile(); // Constructor, sets bools to 0.
     void print(); // Prints content.
@@ -30,5 +30,7 @@ public:
     void make_vampire(); // Vampire is on tile.
     void free(); // Entity is no longer on tile.
     bool is_pot(); // Checks tile for potion
+    bool is_vampire();
+    bool is_werewolf();
     bool can_walk_on(); // Checks tile for occupancy.
 };

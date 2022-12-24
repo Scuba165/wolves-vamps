@@ -88,6 +88,14 @@
         return this->is_potion;
     }
 
+    bool tile::is_werewolf() {
+        return this->is_ww;
+    }
+
+    bool tile::is_vampire() {
+        return this->is_vamp;
+    }
+
     void tile::print() {
         if(this->is_character) {
             std::cout << "\033[;42m A \033[0m";
@@ -95,6 +103,10 @@
         }
         if(this->is_ww) {
             std::cout << "\033[;42m W \033[0m";
+            return;
+        }
+        if(this->is_vamp) {
+            std::cout << "\033[;42m V \033[0m";
             return;
         }
         if(this->is_tree) {

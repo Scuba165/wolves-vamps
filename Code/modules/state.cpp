@@ -74,9 +74,11 @@ void state::update(board board) {
     Sleep(500);
 }
 
-void state::pause_menu() {
+void state::pause_menu(std::vector<Werewolf> Werewolves, std::vector<Vampire> Vampires, avatar player) {
     std::cout << "\e[1;31mGame is paused. Press 'P' to resume or 'N' to end the game!\e[1;31m" << std::endl;
-    std::cout << "\e[1;31mPlayer has \e[1;31m" << this->player->get_pots() << "\e[1;31m potion(s) left.\e[1;31m" << std::endl;
+    std::cout << "\e[1;31mPlayer has \e[1;31m" << player.get_pots() << "\e[1;31m potion(s) left.\e[1;31m" << std::endl;
+    std::cout << "\e[1;31mThere are \e[1;31m" << Werewolves.size() << "\e[1;31m Werewolves alive. \e[1;31m" << std::endl;
+    std::cout << "\e[1;31mThere are \e[1;31m" << Vampires.size() << "\e[1;31m Vampires alive. \e[1;31m" << std::endl;
     if(GetAsyncKeyState('P') & 0x8000) {
         toggle_pause();
     }
