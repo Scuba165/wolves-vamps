@@ -9,6 +9,8 @@
         this->is_lake = 0;
         this->is_potion = 0;
         this->is_occupied = 0;
+        this->is_ww = 0;
+        this->is_vamp = 0;
     }
 
     // Potion picked-up or Entity Unalives
@@ -39,9 +41,25 @@
         this->is_occupied = true;
     }
 
+    void tile::make_werewolf() {
+        this->is_ww = true;
+        this->is_occupied = true;
+    }
+
+    void tile::make_vampire() {
+        this->is_vamp = true;
+        this->is_occupied = true;
+    }
+
     void tile::free() {
         if(this->is_character) {
             this->is_character = false;
+        }
+        if(this->is_ww) {
+            this->is_ww = false;
+        }
+        if(this->is_vamp) {
+            this->is_vamp = false;
         }
         this->is_occupied = false;
     }
@@ -73,6 +91,10 @@
     void tile::print() {
         if(this->is_character) {
             std::cout << "\033[;42m A \033[0m";
+            return;
+        }
+        if(this->is_ww) {
+            std::cout << "\033[;42m W \033[0m";
             return;
         }
         if(this->is_tree) {

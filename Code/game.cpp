@@ -8,7 +8,9 @@
 #include "modules/char.cpp"
 #include "modules/tile.cpp"
 #include "modules/state.cpp"
+#include "modules/werewolf2.cpp"
 #include <windows.h>
+
 
 
 
@@ -21,6 +23,9 @@ int main() {
     map.add_objects();
     avatar player = avatar(map);
     state gamestate = state(player);
+    // Vector WW, Vector Vamps, 
+    Werewolf a = Werewolf(map);
+    Werewolf b = Werewolf(map);
     while(gamestate.is_playing()) {
         if(gamestate.is_paused()) {
             gamestate.pause_menu();
